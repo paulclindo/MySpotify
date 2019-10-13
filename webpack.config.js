@@ -41,6 +41,9 @@ module.exports = {
     // make sure to include the plugin for the magic
     new VueLoaderPlugin()
   ],
+  optimization: {
+    minimize: false //Update this to true or false
+  },
   resolve: {
     alias: {
       vue$: "vue/dist/vue.esm.js"
@@ -67,12 +70,7 @@ if (process.env.NODE_ENV === "production") {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
+
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
